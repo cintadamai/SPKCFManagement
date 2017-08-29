@@ -50,14 +50,14 @@
             // 
             // username
             // 
-            this.username.Location = new System.Drawing.Point(291, 149);
+            this.username.Location = new System.Drawing.Point(297, 152);
             this.username.Name = "username";
             this.username.Size = new System.Drawing.Size(156, 20);
             this.username.TabIndex = 0;
             // 
             // password
             // 
-            this.password.Location = new System.Drawing.Point(291, 193);
+            this.password.Location = new System.Drawing.Point(297, 178);
             this.password.Name = "password";
             this.password.Properties.PasswordChar = '*';
             this.password.Size = new System.Drawing.Size(156, 20);
@@ -65,7 +65,7 @@
             // 
             // labelControl1
             // 
-            this.labelControl1.Location = new System.Drawing.Point(220, 152);
+            this.labelControl1.Location = new System.Drawing.Point(226, 155);
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(48, 13);
             this.labelControl1.TabIndex = 2;
@@ -73,7 +73,7 @@
             // 
             // labelControl2
             // 
-            this.labelControl2.Location = new System.Drawing.Point(222, 196);
+            this.labelControl2.Location = new System.Drawing.Point(226, 181);
             this.labelControl2.Name = "labelControl2";
             this.labelControl2.Size = new System.Drawing.Size(46, 13);
             this.labelControl2.TabIndex = 3;
@@ -81,7 +81,7 @@
             // 
             // masuk
             // 
-            this.masuk.Location = new System.Drawing.Point(246, 248);
+            this.masuk.Location = new System.Drawing.Point(245, 226);
             this.masuk.Name = "masuk";
             this.masuk.Size = new System.Drawing.Size(93, 34);
             this.masuk.TabIndex = 4;
@@ -90,7 +90,7 @@
             // 
             // keluar
             // 
-            this.keluar.Location = new System.Drawing.Point(345, 248);
+            this.keluar.Location = new System.Drawing.Point(344, 226);
             this.keluar.Name = "keluar";
             this.keluar.Size = new System.Drawing.Size(93, 34);
             this.keluar.TabIndex = 5;

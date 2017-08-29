@@ -117,6 +117,7 @@ namespace SPKCFManagement.Master.User
 
             User.name = name.Text;
             User.email = email.Text;
+            User.password = "123";
             User.isactive = isactive.Checked;
             User.branchid = branch_coll.FirstOrDefault(b => b.nama == branch.Text).id;
             User.Save();

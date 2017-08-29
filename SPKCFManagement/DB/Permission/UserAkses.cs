@@ -49,6 +49,18 @@ namespace SPKCFManagement.DB.Permission
             return returned;
         }
 
+        public bool RolesHasPermission(RolesModel roles, PermissionModel permission)
+        {
+            bool returned = false;
+
+            var RolePermissions = role_permission_coll.Where(rp => rp.roleid == roles.id && rp.permissionid == permission.id);
+            if(RolePermissions.Count() > 0)
+            {
+                returned = true;
+            }
+            return returned;
+        }
+
         public void AssignRoleToUser(UserModel user, RolesModel role)
         {
             UserHasRolesModel userHasRoles = new UserHasRolesModel(Session.DefaultSession);

@@ -134,6 +134,12 @@
     <Compile Include="Master\Master.Designer.cs">
       <DependentUpon>Master.cs</DependentUpon>
     </Compile>
+    <Compile Include="Master\User\AddRoleDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master\User\AddRoleDialog.Designer.cs">
+      <DependentUpon>AddRoleDialog.cs</DependentUpon>
+    </Compile>
     <Compile Include="Master\User\BranchLookupDialog.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -165,6 +171,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Master\Master.resx">
       <DependentUpon>Master.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master\User\AddRoleDialog.resx">
+      <DependentUpon>AddRoleDialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Master\User\BranchLookupDialog.resx">
       <DependentUpon>BranchLookupDialog.cs</DependentUpon>
