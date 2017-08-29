@@ -57,5 +57,15 @@ namespace SPKCFManagement.Master
             f.Show();
             f.Focus();
         }
+
+        private void user_roles_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            User.UserRoles f = new User.UserRoles
+            {
+                MdiParent = this
+            };
+            f.Show();
+            f.Focus();
+        }
     }
 }

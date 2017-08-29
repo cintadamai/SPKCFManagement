@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Master));
             this.ribbonControl1 = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.input_user = new DevExpress.XtraBars.BarButtonItem();
@@ -35,7 +36,7 @@
             this.user_permission = new DevExpress.XtraBars.BarButtonItem();
             this.userpage = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.userpagegroup = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.xtraTabbedMdiManager1 = new DevExpress.XtraTabbedMdi.XtraTabbedMdiManager();
+            this.xtraTabbedMdiManager1 = new DevExpress.XtraTabbedMdi.XtraTabbedMdiManager(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabbedMdiManager1)).BeginInit();
             this.SuspendLayout();
@@ -75,6 +76,7 @@
             this.user_roles.Name = "user_roles";
             this.user_roles.RibbonStyle = ((DevExpress.XtraBars.Ribbon.RibbonItemStyles)(((DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText) 
             | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText)));
+            this.user_roles.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.user_roles_ItemClick);
             // 
             // user_permission
             // 

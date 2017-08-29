@@ -28,10 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule1 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule2 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(InputUser));
-            this.Validator = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider();
+            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule3 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
+            this.Validator = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
             this.email = new DevExpress.XtraEditors.TextEdit();
             this.name = new DevExpress.XtraEditors.TextEdit();
             this.tambah = new DevExpress.XtraEditors.SimpleButton();
@@ -39,6 +41,8 @@
             this.simpan = new DevExpress.XtraEditors.SimpleButton();
             this.hapus = new DevExpress.XtraEditors.SimpleButton();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
+            this.branchView = new DevExpress.Xpo.XPView(this.components);
+            this.unitOfWork1 = new DevExpress.Xpo.UnitOfWork(this.components);
             this.id = new DevExpress.XtraEditors.ButtonEdit();
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
@@ -51,6 +55,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.name.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.branchView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.unitOfWork1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.id.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.isactive.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.branch.Properties)).BeginInit();
@@ -88,6 +94,7 @@
             this.tambah.Size = new System.Drawing.Size(100, 40);
             this.tambah.TabIndex = 0;
             this.tambah.Text = "Tambah";
+            this.tambah.Click += new System.EventHandler(this.tambah_Click);
             // 
             // edit
             // 
@@ -97,6 +104,7 @@
             this.edit.Size = new System.Drawing.Size(100, 40);
             this.edit.TabIndex = 1;
             this.edit.Text = "Edit";
+            this.edit.Click += new System.EventHandler(this.edit_Click);
             // 
             // simpan
             // 
@@ -106,6 +114,7 @@
             this.simpan.Size = new System.Drawing.Size(100, 40);
             this.simpan.TabIndex = 2;
             this.simpan.Text = "Simpan";
+            this.simpan.Click += new System.EventHandler(this.simpan_Click);
             // 
             // hapus
             // 
@@ -115,9 +124,11 @@
             this.hapus.Size = new System.Drawing.Size(100, 40);
             this.hapus.TabIndex = 3;
             this.hapus.Text = "Hapus";
+            this.hapus.Click += new System.EventHandler(this.hapus_Click);
             // 
             // panelControl1
             // 
+            this.panelControl1.Controls.Add(this.branch);
             this.panelControl1.Controls.Add(this.id);
             this.panelControl1.Controls.Add(this.labelControl4);
             this.panelControl1.Controls.Add(this.labelControl3);
@@ -126,11 +137,31 @@
             this.panelControl1.Controls.Add(this.isactive);
             this.panelControl1.Controls.Add(this.email);
             this.panelControl1.Controls.Add(this.name);
-            this.panelControl1.Controls.Add(this.branch);
             this.panelControl1.Location = new System.Drawing.Point(12, 58);
             this.panelControl1.Name = "panelControl1";
             this.panelControl1.Size = new System.Drawing.Size(547, 344);
             this.panelControl1.TabIndex = 4;
+            // 
+            // branchView
+            // 
+            this.branchView.ObjectType = typeof(SPKCFManagement.DB.MySQL.spkcms.BranchModel);
+            this.branchView.Properties.AddRange(new DevExpress.Xpo.ViewProperty[] {
+            new DevExpress.Xpo.ViewProperty("id", DevExpress.Xpo.SortDirection.None, "[id]", false, true),
+            new DevExpress.Xpo.ViewProperty("nama", DevExpress.Xpo.SortDirection.None, "[nama]", false, true),
+            new DevExpress.Xpo.ViewProperty("alamat", DevExpress.Xpo.SortDirection.None, "[alamat]", false, true),
+            new DevExpress.Xpo.ViewProperty("no_telepon", DevExpress.Xpo.SortDirection.None, "[no_telepon]", false, true),
+            new DevExpress.Xpo.ViewProperty("created_at", DevExpress.Xpo.SortDirection.None, "[created_at]", false, true),
+            new DevExpress.Xpo.ViewProperty("updated_at", DevExpress.Xpo.SortDirection.None, "[updated_at]", false, true),
+            new DevExpress.Xpo.ViewProperty("created_by", DevExpress.Xpo.SortDirection.None, "[created_by]", false, true),
+            new DevExpress.Xpo.ViewProperty("updated_by", DevExpress.Xpo.SortDirection.None, "[updated_by]", false, true)});
+            this.branchView.Session = this.unitOfWork1;
+            this.branchView.Sorting.AddRange(new DevExpress.Xpo.SortProperty[] {
+            new DevExpress.Xpo.SortProperty("[id]", DevExpress.Xpo.DB.SortingDirection.Ascending)});
+            // 
+            // unitOfWork1
+            // 
+            this.unitOfWork1.IsObjectModifiedOnNonPersistentPropertyChange = null;
+            this.unitOfWork1.TrackPropertiesModifications = false;
             // 
             // id
             // 
@@ -186,11 +217,15 @@
             // 
             this.branch.Location = new System.Drawing.Point(106, 99);
             this.branch.Name = "branch";
+            this.branch.Properties.Appearance.BackColor = System.Drawing.Color.MistyRose;
+            this.branch.Properties.Appearance.Options.UseBackColor = true;
             this.branch.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.branch.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
-            this.branch.Size = new System.Drawing.Size(100, 20);
-            this.branch.TabIndex = 14;
+            this.branch.Size = new System.Drawing.Size(177, 20);
+            this.branch.TabIndex = 16;
+            conditionValidationRule3.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule3.ErrorText = "Harus di isi.";
+            this.Validator.SetValidationRule(this.branch, conditionValidationRule3);
             // 
             // InputUser
             // 
@@ -212,6 +247,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
             this.panelControl1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.branchView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.unitOfWork1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.id.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.isactive.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.branch.Properties)).EndInit();
@@ -235,6 +272,8 @@
         private DevExpress.XtraEditors.LabelControl labelControl1;
         private DevExpress.XtraEditors.LabelControl labelControl4;
         private DevExpress.XtraEditors.ButtonEdit id;
+        private DevExpress.Xpo.XPView branchView;
+        private DevExpress.Xpo.UnitOfWork unitOfWork1;
         private DevExpress.XtraEditors.ButtonEdit branch;
     }
 }

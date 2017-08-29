@@ -28,25 +28,26 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
+            this.xpView1 = new DevExpress.Xpo.XPView(this.components);
+            this.unitOfWork1 = new DevExpress.Xpo.UnitOfWork(this.components);
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.repositoryItemCheckEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
-            this.cancel = new DevExpress.XtraEditors.SimpleButton();
-            this.ok = new DevExpress.XtraEditors.SimpleButton();
-            this.unitOfWork1 = new DevExpress.Xpo.UnitOfWork();
-            this.xpView1 = new DevExpress.Xpo.XPView();
             this.colid = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colnama = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colalamat = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colno_telepon = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.repositoryItemCheckEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
+            this.cancel = new DevExpress.XtraEditors.SimpleButton();
+            this.ok = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.xpView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.unitOfWork1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEdit1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.unitOfWork1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.xpView1)).BeginInit();
             this.SuspendLayout();
             // 
             // panelControl1
@@ -72,6 +73,27 @@
             this.gridView1});
             this.gridControl1.Click += new System.EventHandler(this.gridControl1_Click);
             // 
+            // xpView1
+            // 
+            this.xpView1.ObjectType = typeof(SPKCFManagement.DB.MySQL.spkcms.BranchModel);
+            this.xpView1.Properties.AddRange(new DevExpress.Xpo.ViewProperty[] {
+            new DevExpress.Xpo.ViewProperty("id", DevExpress.Xpo.SortDirection.None, "[id]", false, true),
+            new DevExpress.Xpo.ViewProperty("nama", DevExpress.Xpo.SortDirection.None, "[nama]", false, true),
+            new DevExpress.Xpo.ViewProperty("alamat", DevExpress.Xpo.SortDirection.None, "[alamat]", false, true),
+            new DevExpress.Xpo.ViewProperty("no_telepon", DevExpress.Xpo.SortDirection.None, "[no_telepon]", false, true),
+            new DevExpress.Xpo.ViewProperty("created_at", DevExpress.Xpo.SortDirection.None, "[created_at]", false, true),
+            new DevExpress.Xpo.ViewProperty("updated_at", DevExpress.Xpo.SortDirection.None, "[updated_at]", false, true),
+            new DevExpress.Xpo.ViewProperty("created_by", DevExpress.Xpo.SortDirection.None, "[created_by]", false, true),
+            new DevExpress.Xpo.ViewProperty("updated_by", DevExpress.Xpo.SortDirection.None, "[updated_by]", false, true)});
+            this.xpView1.Session = this.unitOfWork1;
+            this.xpView1.Sorting.AddRange(new DevExpress.Xpo.SortProperty[] {
+            new DevExpress.Xpo.SortProperty("[id]", DevExpress.Xpo.DB.SortingDirection.Ascending)});
+            // 
+            // unitOfWork1
+            // 
+            this.unitOfWork1.IsObjectModifiedOnNonPersistentPropertyChange = null;
+            this.unitOfWork1.TrackPropertiesModifications = false;
+            // 
             // gridView1
             // 
             this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
@@ -86,6 +108,38 @@
             this.gridView1.OptionsBehavior.Editable = false;
             this.gridView1.OptionsBehavior.ReadOnly = true;
             this.gridView1.OptionsFind.AlwaysVisible = true;
+            // 
+            // colid
+            // 
+            this.colid.Caption = "ID";
+            this.colid.FieldName = "id";
+            this.colid.Name = "colid";
+            this.colid.Visible = true;
+            this.colid.VisibleIndex = 0;
+            // 
+            // colnama
+            // 
+            this.colnama.Caption = "Nama Branch";
+            this.colnama.FieldName = "nama";
+            this.colnama.Name = "colnama";
+            this.colnama.Visible = true;
+            this.colnama.VisibleIndex = 1;
+            // 
+            // colalamat
+            // 
+            this.colalamat.Caption = "Alamat";
+            this.colalamat.FieldName = "alamat";
+            this.colalamat.Name = "colalamat";
+            this.colalamat.Visible = true;
+            this.colalamat.VisibleIndex = 2;
+            // 
+            // colno_telepon
+            // 
+            this.colno_telepon.Caption = "No Telepon";
+            this.colno_telepon.FieldName = "no_telepon";
+            this.colno_telepon.Name = "colno_telepon";
+            this.colno_telepon.Visible = true;
+            this.colno_telepon.VisibleIndex = 3;
             // 
             // repositoryItemCheckEdit1
             // 
@@ -110,55 +164,6 @@
             this.ok.Text = "OK";
             this.ok.Click += new System.EventHandler(this.ok_Click);
             // 
-            // unitOfWork1
-            // 
-            this.unitOfWork1.IsObjectModifiedOnNonPersistentPropertyChange = null;
-            this.unitOfWork1.TrackPropertiesModifications = false;
-            // 
-            // xpView1
-            // 
-            this.xpView1.ObjectType = typeof(SPKCFManagement.DB.MySQL.spkcms.BranchModel);
-            this.xpView1.Properties.AddRange(new DevExpress.Xpo.ViewProperty[] {
-            new DevExpress.Xpo.ViewProperty("id", DevExpress.Xpo.SortDirection.None, "[id]", false, true),
-            new DevExpress.Xpo.ViewProperty("nama", DevExpress.Xpo.SortDirection.None, "[nama]", false, true),
-            new DevExpress.Xpo.ViewProperty("alamat", DevExpress.Xpo.SortDirection.None, "[alamat]", false, true),
-            new DevExpress.Xpo.ViewProperty("no_telepon", DevExpress.Xpo.SortDirection.None, "[no_telepon]", false, true),
-            new DevExpress.Xpo.ViewProperty("created_at", DevExpress.Xpo.SortDirection.None, "[created_at]", false, true),
-            new DevExpress.Xpo.ViewProperty("updated_at", DevExpress.Xpo.SortDirection.None, "[updated_at]", false, true),
-            new DevExpress.Xpo.ViewProperty("created_by", DevExpress.Xpo.SortDirection.None, "[created_by]", false, true),
-            new DevExpress.Xpo.ViewProperty("updated_by", DevExpress.Xpo.SortDirection.None, "[updated_by]", false, true)});
-            this.xpView1.Session = this.unitOfWork1;
-            this.xpView1.Sorting.AddRange(new DevExpress.Xpo.SortProperty[] {
-            new DevExpress.Xpo.SortProperty("[id]", DevExpress.Xpo.DB.SortingDirection.Ascending)});
-            // 
-            // colid
-            // 
-            this.colid.FieldName = "id";
-            this.colid.Name = "colid";
-            this.colid.Visible = true;
-            this.colid.VisibleIndex = 0;
-            // 
-            // colnama
-            // 
-            this.colnama.FieldName = "nama";
-            this.colnama.Name = "colnama";
-            this.colnama.Visible = true;
-            this.colnama.VisibleIndex = 1;
-            // 
-            // colalamat
-            // 
-            this.colalamat.FieldName = "alamat";
-            this.colalamat.Name = "colalamat";
-            this.colalamat.Visible = true;
-            this.colalamat.VisibleIndex = 2;
-            // 
-            // colno_telepon
-            // 
-            this.colno_telepon.FieldName = "no_telepon";
-            this.colno_telepon.Name = "colno_telepon";
-            this.colno_telepon.Visible = true;
-            this.colno_telepon.VisibleIndex = 3;
-            // 
             // BranchLookupDialog
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -175,10 +180,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.xpView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.unitOfWork1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEdit1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.unitOfWork1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.xpView1)).EndInit();
             this.ResumeLayout(false);
 
         }

@@ -44,6 +44,12 @@ namespace SPKCFManagement.DB.MySQL.spkcms
             get { return fpermission_code; }
             set { SetPropertyValue<string>("permission_code", ref fpermission_code, value); }
         }
+        int fparent;
+        public int parent
+        {
+            get { return fparent; }
+            set { SetPropertyValue<int>("parent", ref fparent, value); }
+        }
     }
 
 }
