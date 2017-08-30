@@ -152,6 +152,12 @@
     <Compile Include="Master\User\InputUser.Designer.cs">
       <DependentUpon>InputUser.cs</DependentUpon>
     </Compile>
+    <Compile Include="Master\User\UserBranch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master\User\UserBranch.Designer.cs">
+      <DependentUpon>UserBranch.cs</DependentUpon>
+    </Compile>
     <Compile Include="Master\User\UserLookupDialog.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -180,6 +186,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Master\User\InputUser.resx">
       <DependentUpon>InputUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master\User\UserBranch.resx">
+      <DependentUpon>UserBranch.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Master\User\UserLookupDialog.resx">
       <DependentUpon>UserLookupDialog.cs</DependentUpon>
@@ -239,6 +248,15 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\apply_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bouser_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\boposition2_32x321.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

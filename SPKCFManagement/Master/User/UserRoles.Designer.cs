@@ -32,15 +32,17 @@
             System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Input User");
             System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("User Roles");
             System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("User Permission");
-            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("User", new System.Windows.Forms.TreeNode[] {
+            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("User Branch");
+            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("User", new System.Windows.Forms.TreeNode[] {
             treeNode1,
             treeNode2,
-            treeNode3});
-            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("Master", new System.Windows.Forms.TreeNode[] {
+            treeNode3,
             treeNode4});
-            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("SPK");
-            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("Pelunasan");
-            System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("Utility");
+            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("Master", new System.Windows.Forms.TreeNode[] {
+            treeNode5});
+            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("SPK");
+            System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("Pelunasan");
+            System.Windows.Forms.TreeNode treeNode9 = new System.Windows.Forms.TreeNode("Utility");
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule1 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UserRoles));
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
@@ -55,10 +57,10 @@
             this.addUser = new DevExpress.XtraEditors.SimpleButton();
             this.RolesCombo = new DevExpress.XtraEditors.ComboBoxEdit();
             this.hapus = new DevExpress.XtraEditors.SimpleButton();
-            this.simpan = new DevExpress.XtraEditors.SimpleButton();
             this.edit = new DevExpress.XtraEditors.SimpleButton();
             this.tambah = new DevExpress.XtraEditors.SimpleButton();
             this.AddUserValidator = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
+            this.simpan = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
             this.panelControl2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl4)).BeginInit();
@@ -99,21 +101,23 @@
             treeNode2.Text = "User Roles";
             treeNode3.Name = "user_permission";
             treeNode3.Text = "User Permission";
-            treeNode4.Name = "userpage";
-            treeNode4.Text = "User";
-            treeNode5.Name = "master";
-            treeNode5.Text = "Master";
-            treeNode6.Name = "spk";
-            treeNode6.Text = "SPK";
-            treeNode7.Name = "pelunasan";
-            treeNode7.Text = "Pelunasan";
-            treeNode8.Name = "utility";
-            treeNode8.Text = "Utility";
+            treeNode4.Name = "user_branch";
+            treeNode4.Text = "User Branch";
+            treeNode5.Name = "userpage";
+            treeNode5.Text = "User";
+            treeNode6.Name = "master";
+            treeNode6.Text = "Master";
+            treeNode7.Name = "spk";
+            treeNode7.Text = "SPK";
+            treeNode8.Name = "pelunasan";
+            treeNode8.Text = "Pelunasan";
+            treeNode9.Name = "utility";
+            treeNode9.Text = "Utility";
             this.MenuTreeView.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode5,
             treeNode6,
             treeNode7,
-            treeNode8});
+            treeNode8,
+            treeNode9});
             this.MenuTreeView.Size = new System.Drawing.Size(590, 405);
             this.MenuTreeView.TabIndex = 11;
             // 
@@ -207,15 +211,6 @@
             this.hapus.Text = "Hapus";
             this.hapus.Click += new System.EventHandler(this.Hapus_Click);
             // 
-            // simpan
-            // 
-            this.simpan.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpan.ImageOptions.Image")));
-            this.simpan.Location = new System.Drawing.Point(118, 12);
-            this.simpan.Name = "simpan";
-            this.simpan.Size = new System.Drawing.Size(100, 40);
-            this.simpan.TabIndex = 9;
-            this.simpan.Text = "Simpan";
-            // 
             // edit
             // 
             this.edit.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("edit.ImageOptions.Image")));
@@ -235,13 +230,23 @@
             this.tambah.Text = "Tambah";
             this.tambah.Click += new System.EventHandler(this.Tambah_Click);
             // 
+            // simpan
+            // 
+            this.simpan.ImageOptions.Image = global::SPKCFManagement.Properties.Resources.apply_32x32;
+            this.simpan.Location = new System.Drawing.Point(118, 12);
+            this.simpan.Name = "simpan";
+            this.simpan.Size = new System.Drawing.Size(100, 40);
+            this.simpan.TabIndex = 11;
+            this.simpan.Text = "Simpan";
+            this.simpan.Click += new System.EventHandler(this.Simpan_Click);
+            // 
             // UserRoles
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(947, 522);
-            this.Controls.Add(this.hapus);
             this.Controls.Add(this.simpan);
+            this.Controls.Add(this.hapus);
             this.Controls.Add(this.edit);
             this.Controls.Add(this.tambah);
             this.Controls.Add(this.panelControl1);
@@ -270,7 +275,6 @@
         private DevExpress.XtraEditors.ComboBoxEdit RolesCombo;
         private DevExpress.XtraEditors.PanelControl panelControl3;
         private DevExpress.XtraEditors.SimpleButton hapus;
-        private DevExpress.XtraEditors.SimpleButton simpan;
         private DevExpress.XtraEditors.SimpleButton edit;
         private DevExpress.XtraEditors.SimpleButton tambah;
         private DevExpress.XtraGrid.GridControl UserGridControl;
@@ -281,5 +285,6 @@
         private DevExpress.XtraEditors.SimpleButton addUser;
         private DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider AddUserValidator;
         private DevExpress.XtraEditors.SimpleButton removeUser;
+        private DevExpress.XtraEditors.SimpleButton simpan;
     }
 }

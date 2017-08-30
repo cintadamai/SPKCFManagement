@@ -15,6 +15,8 @@ namespace SPKCFManagement.DB.Permission
         XPQuery<RolesModel> roles_coll = Session.DefaultSession.Query<RolesModel>();
         XPQuery<PermissionModel> permission_coll = Session.DefaultSession.Query<PermissionModel>();
         XPQuery<RoleHasPermissionModel> role_permission_coll = Session.DefaultSession.Query<RoleHasPermissionModel>();
+        XPQuery<BranchModel> branch_coll = Session.DefaultSession.Query<BranchModel>();
+        XPQuery<UserHasBranchModel> user_has_branch_coll = Session.DefaultSession.Query<UserHasBranchModel>();
 
         UserModel User;
         public bool Can(String permission)
@@ -101,6 +103,26 @@ namespace SPKCFManagement.DB.Permission
         {
             RoleHasPermissionModel roleHasPermission = role_permission_coll.FirstOrDefault(rp => rp.roleid == role.id && rp.permissionid == permission.id);
             roleHasPermission.Delete();
+        }
+
+        public void AddBranchForUser(UserModel user, BranchModel branch)
+        {
+            var count = user_has_branch_coll.Where(uhb => uhb.userid == user.id && uhb.branchid == branch.id);
+            if(count.Count() == 0)
+            {
+                UserHasBranchModel userHasBranch = new UserHasBranchModel(Session.DefaultSession)
+                {
+                    userid = user.id,
+                    branchid = branch.id
+                };
+                userHasBranch.Save();
+            }
+        }
+
+        public void RemoveBranchFromUser(UserModel user, BranchModel branch)
+        {
+            UserHasBranchModel userHasBranch = user_has_branch_coll.FirstOrDefault(uhb => uhb.userid == user.id && uhb.branchid == branch.id);
+            userHasBranch.Delete();
         }
 
 

@@ -46,6 +46,12 @@ namespace SPKCFManagement.Master
                 userpagegroup.Enabled = true;
                 user_permission.Enabled = true;
             }
+
+            if(userAkses.Can("user_branch"))
+            {
+                userpagegroup.Enabled = true;
+                user_branch.Enabled = true;
+            }
         }
 
         private void Input_user_ItemClick(object sender, ItemClickEventArgs e)
@@ -58,9 +64,19 @@ namespace SPKCFManagement.Master
             f.Focus();
         }
 
-        private void user_roles_ItemClick(object sender, ItemClickEventArgs e)
+        private void User_roles_ItemClick(object sender, ItemClickEventArgs e)
         {
             User.UserRoles f = new User.UserRoles
+            {
+                MdiParent = this
+            };
+            f.Show();
+            f.Focus();
+        }
+
+        private void User_branch_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            User.UserBranch f = new User.UserBranch
             {
                 MdiParent = this
             };

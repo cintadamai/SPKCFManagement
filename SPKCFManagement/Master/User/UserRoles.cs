@@ -27,13 +27,16 @@ namespace SPKCFManagement.Master.User
         {
             InitializeComponent();
             RolesCombo.EditValueChanged += RolesCombo_EditValueChanged;
+            MenuTreeView.AfterCheck += MenuTreeView_AfterCheck;
             Akses = new UserAkses();
-            simpan.Click += Simpan_Click;
         }
 
-        private void Simpan_Click(object sender, EventArgs e)
+        private void MenuTreeView_AfterCheck(object sender, TreeViewEventArgs e)
         {
-            
+            foreach(TreeNode node in e.Node.Nodes)
+            {
+                node.Checked = e.Node.Checked;
+            }
         }
 
         private void RolesCombo_EditValueChanged(object sender, EventArgs e)
@@ -60,25 +63,45 @@ namespace SPKCFManagement.Master.User
              **/
             var RolePermissionsList = role_has_permission_coll.Where(rhp => rhp.roleid == Role.id).Select(rhp => rhp.permissionid);
             var Permissions = permission_coll.Where(p => RolePermissionsList.Contains(p.id));
-            foreach (PermissionModel p in Permissions)
+            var NotPermissions = permission_coll.Where(p => !RolePermissionsList.Contains(p.id));
+            
+            // Permission Type 1
+            foreach (PermissionModel p in Permissions.Where(p => p.permission_type == 1))
             {
-                if(p.permission_type == 1)
-                {
-                    MenuTreeView.Nodes[p.permission_name].Checked = true;
-                }
+                MenuTreeView.Nodes[p.permission_name].Checked = true;
+            }
 
-                if(p.permission_type == 2)
-                {
-                    var Parent = permission_coll.FirstOrDefault(pr => pr.id == p.parent);
-                    MenuTreeView.Nodes[Parent.permission_name].Nodes[p.permission_name].Checked = true;
-                }
+            foreach (PermissionModel p in NotPermissions.Where(p => p.permission_type == 1))
+            {
+                MenuTreeView.Nodes[p.permission_name].Checked = false;
+            }
 
-                if(p.permission_type == 3)
-                {
-                    var Parent = permission_coll.FirstOrDefault(pr => pr.id == p.parent);
-                    var Root = permission_coll.FirstOrDefault(pr => pr.id == Parent.parent);
-                    MenuTreeView.Nodes[Root.permission_name].Nodes[Parent.permission_name].Nodes[p.permission_name].Checked = true;
-                }
+            // Permission Type 2
+            foreach (PermissionModel p in Permissions.Where(p => p.permission_type == 2))
+            {
+                var Parent = permission_coll.FirstOrDefault(pr => pr.id == p.parent);
+                MenuTreeView.Nodes[Parent.permission_name].Nodes[p.permission_name].Checked = true;
+            }
+
+            foreach (PermissionModel p in NotPermissions.Where(p => p.permission_type == 2))
+            {
+                var Parent = permission_coll.FirstOrDefault(pr => pr.id == p.parent);
+                MenuTreeView.Nodes[Parent.permission_name].Nodes[p.permission_name].Checked = false;
+            }
+
+            // Permission Type 3
+            foreach (PermissionModel p in Permissions.Where(p => p.permission_type == 3))
+            {
+                var Parent = permission_coll.FirstOrDefault(pr => pr.id == p.parent);
+                var Root = permission_coll.FirstOrDefault(pr => pr.id == Parent.parent);
+                MenuTreeView.Nodes[Root.permission_name].Nodes[Parent.permission_name].Nodes[p.permission_name].Checked = true;
+            }
+
+            foreach (PermissionModel p in NotPermissions.Where(p => p.permission_type == 3))
+            {
+                var Parent = permission_coll.FirstOrDefault(pr => pr.id == p.parent);
+                var Root = permission_coll.FirstOrDefault(pr => pr.id == Parent.parent);
+                MenuTreeView.Nodes[Root.permission_name].Nodes[Parent.permission_name].Nodes[p.permission_name].Checked = false;
             }
         }
 
@@ -185,6 +208,42 @@ namespace SPKCFManagement.Master.User
             foreach (RolesModel role in roles_coll)
             {
                 RolesCombo.Properties.Items.Add(role.role_name);
+            }
+        }
+
+        private void Simpan_Click(object sender, EventArgs e)
+        {
+            TreeNodeCollection nodes = MenuTreeView.Nodes;
+            RekursifSaveNodes(nodes);
+            MessageBox.Show("Perubahan berhasil disimpan", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void RekursifSaveNodes(TreeNodeCollection nodes)
+        {
+            foreach(TreeNode node in nodes)
+            {
+                RolesModel roles = roles_coll.FirstOrDefault(r => r.role_name == RolesCombo.Text);
+                PermissionModel permission = permission_coll.FirstOrDefault(p => p.permission_name == node.Name);
+
+                if (node.Checked == true)
+                {
+                    if (!Akses.RolesHasPermission(roles, permission))
+                    {
+                        Akses.AddPermissionToRole(roles, permission);
+                    }
+                } else
+                {
+                    if(Akses.RolesHasPermission(roles, permission))
+                    {
+                        Akses.RemovePermissionFromRole(roles, permission);
+                    }
+                }
+
+                TreeNodeCollection ChildNodes = node.Nodes;
+                if(ChildNodes != null)
+                {
+                    RekursifSaveNodes(ChildNodes);
+                }
             }
         }
     }

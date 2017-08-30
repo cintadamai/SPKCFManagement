@@ -34,6 +34,7 @@
             this.input_user = new DevExpress.XtraBars.BarButtonItem();
             this.user_roles = new DevExpress.XtraBars.BarButtonItem();
             this.user_permission = new DevExpress.XtraBars.BarButtonItem();
+            this.user_branch = new DevExpress.XtraBars.BarButtonItem();
             this.userpage = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.userpagegroup = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.xtraTabbedMdiManager1 = new DevExpress.XtraTabbedMdi.XtraTabbedMdiManager(this.components);
@@ -48,9 +49,10 @@
             this.ribbonControl1.ExpandCollapseItem,
             this.input_user,
             this.user_roles,
-            this.user_permission});
+            this.user_permission,
+            this.user_branch});
             this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
-            this.ribbonControl1.MaxItemId = 4;
+            this.ribbonControl1.MaxItemId = 5;
             this.ribbonControl1.Name = "ribbonControl1";
             this.ribbonControl1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.userpage});
@@ -76,17 +78,28 @@
             this.user_roles.Name = "user_roles";
             this.user_roles.RibbonStyle = ((DevExpress.XtraBars.Ribbon.RibbonItemStyles)(((DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText) 
             | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText)));
-            this.user_roles.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.user_roles_ItemClick);
+            this.user_roles.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.User_roles_ItemClick);
             // 
             // user_permission
             // 
             this.user_permission.Caption = "User Permission";
             this.user_permission.Enabled = false;
             this.user_permission.Id = 3;
-            this.user_permission.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("user_permission.ImageOptions.Image")));
+            this.user_permission.ImageOptions.Image = global::SPKCFManagement.Properties.Resources.bouser_32x32;
             this.user_permission.Name = "user_permission";
             this.user_permission.RibbonStyle = ((DevExpress.XtraBars.Ribbon.RibbonItemStyles)(((DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText) 
             | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText)));
+            // 
+            // user_branch
+            // 
+            this.user_branch.Caption = "User Branch";
+            this.user_branch.Enabled = false;
+            this.user_branch.Id = 4;
+            this.user_branch.ImageOptions.Image = global::SPKCFManagement.Properties.Resources.boposition2_32x321;
+            this.user_branch.Name = "user_branch";
+            this.user_branch.RibbonStyle = ((DevExpress.XtraBars.Ribbon.RibbonItemStyles)(((DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText) 
+            | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText)));
+            this.user_branch.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.User_branch_ItemClick);
             // 
             // userpage
             // 
@@ -101,6 +114,7 @@
             this.userpagegroup.ItemLinks.Add(this.input_user);
             this.userpagegroup.ItemLinks.Add(this.user_roles);
             this.userpagegroup.ItemLinks.Add(this.user_permission);
+            this.userpagegroup.ItemLinks.Add(this.user_branch);
             this.userpagegroup.Name = "userpagegroup";
             this.userpagegroup.Text = "User";
             // 
@@ -136,5 +150,6 @@
         private DevExpress.XtraBars.BarButtonItem input_user;
         private DevExpress.XtraBars.BarButtonItem user_roles;
         private DevExpress.XtraBars.BarButtonItem user_permission;
+        private DevExpress.XtraBars.BarButtonItem user_branch;
     }
 }
