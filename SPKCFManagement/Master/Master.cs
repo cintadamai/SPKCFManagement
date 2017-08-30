@@ -52,6 +52,23 @@ namespace SPKCFManagement.Master
                 userpagegroup.Enabled = true;
                 user_branch.Enabled = true;
             }
+
+            if(userAkses.Can("teampage"))
+            {
+                salespaggroup.Enabled = true;
+            }
+
+            if(userAkses.Can("sales"))
+            {
+                salespaggroup.Enabled = true;
+                sales.Enabled = true;
+            }
+
+            if(userAkses.Can("saleshead"))
+            {
+                salespaggroup.Enabled = true;
+                saleshead.Enabled = true;
+            }
         }
 
         private void Input_user_ItemClick(object sender, ItemClickEventArgs e)
@@ -77,6 +94,26 @@ namespace SPKCFManagement.Master
         private void User_branch_ItemClick(object sender, ItemClickEventArgs e)
         {
             User.UserBranch f = new User.UserBranch
+            {
+                MdiParent = this
+            };
+            f.Show();
+            f.Focus();
+        }
+
+        private void Sales_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Team.Sales f = new Team.Sales
+            {
+                MdiParent = this
+            };
+            f.Show();
+            f.Focus();
+        }
+
+        private void saleshead_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Team.Saleshead f = new Team.Saleshead
             {
                 MdiParent = this
             };

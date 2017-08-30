@@ -35,8 +35,12 @@
             this.user_roles = new DevExpress.XtraBars.BarButtonItem();
             this.user_permission = new DevExpress.XtraBars.BarButtonItem();
             this.user_branch = new DevExpress.XtraBars.BarButtonItem();
+            this.sales = new DevExpress.XtraBars.BarButtonItem();
+            this.saleshead = new DevExpress.XtraBars.BarButtonItem();
             this.userpage = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.userpagegroup = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.teampage = new DevExpress.XtraBars.Ribbon.RibbonPage();
+            this.salespaggroup = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.xtraTabbedMdiManager1 = new DevExpress.XtraTabbedMdi.XtraTabbedMdiManager(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabbedMdiManager1)).BeginInit();
@@ -50,12 +54,15 @@
             this.input_user,
             this.user_roles,
             this.user_permission,
-            this.user_branch});
+            this.user_branch,
+            this.sales,
+            this.saleshead});
             this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
-            this.ribbonControl1.MaxItemId = 5;
+            this.ribbonControl1.MaxItemId = 7;
             this.ribbonControl1.Name = "ribbonControl1";
             this.ribbonControl1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
-            this.userpage});
+            this.userpage,
+            this.teampage});
             this.ribbonControl1.Size = new System.Drawing.Size(667, 141);
             // 
             // input_user
@@ -101,6 +108,28 @@
             | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText)));
             this.user_branch.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.User_branch_ItemClick);
             // 
+            // sales
+            // 
+            this.sales.Caption = "Sales";
+            this.sales.Enabled = false;
+            this.sales.Id = 5;
+            this.sales.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("sales.ImageOptions.Image")));
+            this.sales.Name = "sales";
+            this.sales.RibbonStyle = ((DevExpress.XtraBars.Ribbon.RibbonItemStyles)(((DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText) 
+            | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText)));
+            this.sales.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.Sales_ItemClick);
+            // 
+            // saleshead
+            // 
+            this.saleshead.Caption = "Sales Head";
+            this.saleshead.Enabled = false;
+            this.saleshead.Id = 6;
+            this.saleshead.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("saleshead.ImageOptions.Image")));
+            this.saleshead.Name = "saleshead";
+            this.saleshead.RibbonStyle = ((DevExpress.XtraBars.Ribbon.RibbonItemStyles)(((DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText) 
+            | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText)));
+            this.saleshead.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.saleshead_ItemClick);
+            // 
             // userpage
             // 
             this.userpage.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -117,6 +146,21 @@
             this.userpagegroup.ItemLinks.Add(this.user_branch);
             this.userpagegroup.Name = "userpagegroup";
             this.userpagegroup.Text = "User";
+            // 
+            // teampage
+            // 
+            this.teampage.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
+            this.salespaggroup});
+            this.teampage.Name = "teampage";
+            this.teampage.Text = "Team";
+            // 
+            // salespaggroup
+            // 
+            this.salespaggroup.Enabled = false;
+            this.salespaggroup.ItemLinks.Add(this.sales);
+            this.salespaggroup.ItemLinks.Add(this.saleshead);
+            this.salespaggroup.Name = "salespaggroup";
+            this.salespaggroup.Text = "Team";
             // 
             // xtraTabbedMdiManager1
             // 
@@ -151,5 +195,9 @@
         private DevExpress.XtraBars.BarButtonItem user_roles;
         private DevExpress.XtraBars.BarButtonItem user_permission;
         private DevExpress.XtraBars.BarButtonItem user_branch;
+        private DevExpress.XtraBars.Ribbon.RibbonPage teampage;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup salespaggroup;
+        private DevExpress.XtraBars.BarButtonItem sales;
+        private DevExpress.XtraBars.BarButtonItem saleshead;
     }
 }

@@ -38,11 +38,17 @@
             treeNode2,
             treeNode3,
             treeNode4});
-            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("Master", new System.Windows.Forms.TreeNode[] {
-            treeNode5});
-            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("SPK");
-            System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("Pelunasan");
-            System.Windows.Forms.TreeNode treeNode9 = new System.Windows.Forms.TreeNode("Utility");
+            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("Sales");
+            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("Sales Head");
+            System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("Team", new System.Windows.Forms.TreeNode[] {
+            treeNode6,
+            treeNode7});
+            System.Windows.Forms.TreeNode treeNode9 = new System.Windows.Forms.TreeNode("Master", new System.Windows.Forms.TreeNode[] {
+            treeNode5,
+            treeNode8});
+            System.Windows.Forms.TreeNode treeNode10 = new System.Windows.Forms.TreeNode("SPK");
+            System.Windows.Forms.TreeNode treeNode11 = new System.Windows.Forms.TreeNode("Pelunasan");
+            System.Windows.Forms.TreeNode treeNode12 = new System.Windows.Forms.TreeNode("Utility");
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule1 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UserRoles));
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
@@ -105,19 +111,25 @@
             treeNode4.Text = "User Branch";
             treeNode5.Name = "userpage";
             treeNode5.Text = "User";
-            treeNode6.Name = "master";
-            treeNode6.Text = "Master";
-            treeNode7.Name = "spk";
-            treeNode7.Text = "SPK";
-            treeNode8.Name = "pelunasan";
-            treeNode8.Text = "Pelunasan";
-            treeNode9.Name = "utility";
-            treeNode9.Text = "Utility";
+            treeNode6.Name = "sales";
+            treeNode6.Text = "Sales";
+            treeNode7.Name = "saleshead";
+            treeNode7.Text = "Sales Head";
+            treeNode8.Name = "teampage";
+            treeNode8.Text = "Team";
+            treeNode9.Name = "master";
+            treeNode9.Text = "Master";
+            treeNode10.Name = "spk";
+            treeNode10.Text = "SPK";
+            treeNode11.Name = "pelunasan";
+            treeNode11.Text = "Pelunasan";
+            treeNode12.Name = "utility";
+            treeNode12.Text = "Utility";
             this.MenuTreeView.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode6,
-            treeNode7,
-            treeNode8,
-            treeNode9});
+            treeNode9,
+            treeNode10,
+            treeNode11,
+            treeNode12});
             this.MenuTreeView.Size = new System.Drawing.Size(590, 405);
             this.MenuTreeView.TabIndex = 11;
             // 

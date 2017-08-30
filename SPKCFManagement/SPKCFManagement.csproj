@@ -89,6 +89,10 @@
       <DependentUpon>BranchModel.cs</DependentUpon>
     </Compile>
     <Compile Include="DB\MySQL\ModelCode\ConnectionHelper.cs" />
+    <Compile Include="DB\MySQL\ModelCode\PelunasanModel.cs" />
+    <Compile Include="DB\MySQL\ModelCode\PelunasanModel.Designer.cs">
+      <DependentUpon>PelunasanModel.cs</DependentUpon>
+    </Compile>
     <Compile Include="DB\MySQL\ModelCode\PermissionModel.cs" />
     <Compile Include="DB\MySQL\ModelCode\PermissionModel.Designer.cs">
       <DependentUpon>PermissionModel.cs</DependentUpon>
@@ -100,6 +104,22 @@
     <Compile Include="DB\MySQL\ModelCode\RolesModel.cs" />
     <Compile Include="DB\MySQL\ModelCode\RolesModel.Designer.cs">
       <DependentUpon>RolesModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DB\MySQL\ModelCode\SalesHeadModel.cs" />
+    <Compile Include="DB\MySQL\ModelCode\SalesHeadModel.Designer.cs">
+      <DependentUpon>SalesHeadModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DB\MySQL\ModelCode\SalesModel.cs" />
+    <Compile Include="DB\MySQL\ModelCode\SalesModel.Designer.cs">
+      <DependentUpon>SalesModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DB\MySQL\ModelCode\SalesViewModel.cs" />
+    <Compile Include="DB\MySQL\ModelCode\SalesViewModel.Designer.cs">
+      <DependentUpon>SalesViewModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DB\MySQL\ModelCode\SpkModel.cs" />
+    <Compile Include="DB\MySQL\ModelCode\SpkModel.Designer.cs">
+      <DependentUpon>SpkModel.cs</DependentUpon>
     </Compile>
     <Compile Include="DB\MySQL\ModelCode\UserHasBranchModel.cs" />
     <Compile Include="DB\MySQL\ModelCode\UserHasBranchModel.Designer.cs">
@@ -133,6 +153,18 @@
     </Compile>
     <Compile Include="Master\Master.Designer.cs">
       <DependentUpon>Master.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Master\Team\Sales.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master\Team\Sales.Designer.cs">
+      <DependentUpon>Sales.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Master\Team\Saleshead.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master\Team\Saleshead.Designer.cs">
+      <DependentUpon>Saleshead.cs</DependentUpon>
     </Compile>
     <Compile Include="Master\User\AddRoleDialog.cs">
       <SubType>Form</SubType>
@@ -177,6 +209,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Master\Master.resx">
       <DependentUpon>Master.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master\Team\Sales.resx">
+      <DependentUpon>Sales.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master\Team\Saleshead.resx">
+      <DependentUpon>Saleshead.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Master\User\AddRoleDialog.resx">
       <DependentUpon>AddRoleDialog.cs</DependentUpon>
