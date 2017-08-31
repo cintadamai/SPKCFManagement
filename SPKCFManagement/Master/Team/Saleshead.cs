@@ -82,10 +82,11 @@ namespace SPKCFManagement.Master.Team
             DialogResult dialog = MessageBox.Show("Yakin ?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
             if(dialog == DialogResult.Yes)
             {
-                XPQuery<SalesHeadModel> sha = SHUnitOfWork.Query<SalesHeadModel>();
-                SalesHeadModel salesHead = sha.FirstOrDefault(sh => sh.kode_sh == Convert.ToInt64(kode_sh.Text));
-                SHUnitOfWork.Delete(salesHead);
-                SHUnitOfWork.CommitChanges();
+                UnitOfWork a = new UnitOfWork(XpoDefault.DataLayer);
+                XPQuery<SalesHeadModel> shcoll = a.Query<SalesHeadModel>();
+                SalesHeadModel salesHead = shcoll.FirstOrDefault(sh => sh.kode_sh == Convert.ToInt64(kode_sh.Text));
+                a.Delete(salesHead);
+                a.CommitChanges();
             }
 
             kode_sh.Text = "";

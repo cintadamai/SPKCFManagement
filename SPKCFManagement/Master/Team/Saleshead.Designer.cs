@@ -33,11 +33,10 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Saleshead));
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
             this.SHGridControl = new DevExpress.XtraGrid.GridControl();
-            this.SHCollection = new DevExpress.Xpo.XPCollection(this.components);
-            this.SHUnitOfWork = new DevExpress.Xpo.UnitOfWork(this.components);
             this.SHGridView = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colkode_sh = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colnama_sh = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.SHUnitOfWork = new DevExpress.Xpo.UnitOfWork(this.components);
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.nama_sh = new DevExpress.XtraEditors.TextEdit();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
@@ -51,9 +50,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
             this.panelControl2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.SHGridControl)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.SHCollection)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.SHUnitOfWork)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.SHGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.SHUnitOfWork)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nama_sh.Properties)).BeginInit();
@@ -80,17 +78,6 @@
             this.SHGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.SHGridView});
             this.SHGridControl.Click += new System.EventHandler(this.SHGridControl_Click);
-            // 
-            // SHCollection
-            // 
-            this.SHCollection.DisplayableProperties = "kode_sh;nama_sh;branchid";
-            this.SHCollection.ObjectType = typeof(SPKCFManagement.DB.MySQL.spkcms.SalesHeadModel);
-            this.SHCollection.Session = this.SHUnitOfWork;
-            // 
-            // SHUnitOfWork
-            // 
-            this.SHUnitOfWork.IsObjectModifiedOnNonPersistentPropertyChange = null;
-            this.SHUnitOfWork.TrackPropertiesModifications = false;
             // 
             // SHGridView
             // 
@@ -119,6 +106,11 @@
             this.colnama_sh.Name = "colnama_sh";
             this.colnama_sh.Visible = true;
             this.colnama_sh.VisibleIndex = 1;
+            // 
+            // SHUnitOfWork
+            // 
+            this.SHUnitOfWork.IsObjectModifiedOnNonPersistentPropertyChange = null;
+            this.SHUnitOfWork.TrackPropertiesModifications = false;
             // 
             // panelControl1
             // 
@@ -224,9 +216,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).EndInit();
             this.panelControl2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.SHGridControl)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.SHCollection)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.SHUnitOfWork)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.SHGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.SHUnitOfWork)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
             this.panelControl1.PerformLayout();
@@ -254,7 +245,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn colnama_sh;
         private DevExpress.XtraEditors.TextEdit kode_sh;
         private DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider InputValidator;
-        private DevExpress.Xpo.XPCollection SHCollection;
         private DevExpress.Xpo.UnitOfWork SHUnitOfWork;
     }
 }
