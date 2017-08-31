@@ -44,12 +44,11 @@
             this.kode_sh = new DevExpress.XtraEditors.ComboBoxEdit();
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
             this.SalesGridControl = new DevExpress.XtraGrid.GridControl();
-            this.SalesCollection = new DevExpress.Xpo.XPCollection(this.components);
-            this.SalesUnitOfWork = new DevExpress.Xpo.UnitOfWork(this.components);
             this.SalesGridView = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colkode_sales = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colnama_sales = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colnama_sh = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.SalesUnitOfWork = new DevExpress.Xpo.UnitOfWork(this.components);
             this.InputValidator = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
@@ -59,9 +58,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
             this.panelControl2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.SalesGridControl)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.SalesCollection)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.SalesUnitOfWork)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.SalesGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.SalesUnitOfWork)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.InputValidator)).BeginInit();
             this.SuspendLayout();
             // 
@@ -187,7 +185,6 @@
             // 
             // SalesGridControl
             // 
-            this.SalesGridControl.DataSource = this.SalesCollection;
             this.SalesGridControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.SalesGridControl.Location = new System.Drawing.Point(2, 2);
             this.SalesGridControl.MainView = this.SalesGridView;
@@ -197,17 +194,6 @@
             this.SalesGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.SalesGridView});
             this.SalesGridControl.Click += new System.EventHandler(this.SalesGridControl_Click);
-            // 
-            // SalesCollection
-            // 
-            this.SalesCollection.DisplayableProperties = "kode_sales;nama_sales;nama_sh;shbranch;salesbranch;kode_sh";
-            this.SalesCollection.ObjectType = typeof(SPKCFManagement.DB.MySQL.spkcms.SalesViewModel);
-            this.SalesCollection.Session = this.SalesUnitOfWork;
-            // 
-            // SalesUnitOfWork
-            // 
-            this.SalesUnitOfWork.IsObjectModifiedOnNonPersistentPropertyChange = null;
-            this.SalesUnitOfWork.TrackPropertiesModifications = false;
             // 
             // SalesGridView
             // 
@@ -246,6 +232,11 @@
             this.colnama_sh.Visible = true;
             this.colnama_sh.VisibleIndex = 0;
             // 
+            // SalesUnitOfWork
+            // 
+            this.SalesUnitOfWork.IsObjectModifiedOnNonPersistentPropertyChange = null;
+            this.SalesUnitOfWork.TrackPropertiesModifications = false;
+            // 
             // Sales
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -269,9 +260,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).EndInit();
             this.panelControl2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.SalesGridControl)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.SalesCollection)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.SalesUnitOfWork)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.SalesGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.SalesUnitOfWork)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.InputValidator)).EndInit();
             this.ResumeLayout(false);
 
@@ -294,7 +284,6 @@
         private DevExpress.XtraEditors.TextEdit kode_sales;
         private DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider InputValidator;
         private DevExpress.XtraEditors.ComboBoxEdit kode_sh;
-        private DevExpress.Xpo.XPCollection SalesCollection;
         private DevExpress.Xpo.UnitOfWork SalesUnitOfWork;
         private DevExpress.XtraGrid.Columns.GridColumn colkode_sales;
         private DevExpress.XtraGrid.Columns.GridColumn colnama_sales;

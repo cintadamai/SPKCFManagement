@@ -17,7 +17,7 @@ namespace SPKCFManagement.Master.Team
     {
         XPQuery<SalesModel> sales_coll = Session.DefaultSession.Query<SalesModel>();
         XPQuery<SalesHeadModel> sales_head_coll = Session.DefaultSession.Query<SalesHeadModel>();
-        XPQuery<SalesViewModel> sales_view_coll = Session.DefaultSession.Query<SalesViewModel>();
+        XPQuery<SalesViewModel> sales_view_coll;
 
         public Sales()
         {
@@ -32,10 +32,13 @@ namespace SPKCFManagement.Master.Team
                 return;
             }
             var selectedID = SalesGridView.GetFocusedRowCellValue(colkode_sales);
-            SalesModel sales = sales_coll.FirstOrDefault(s => s.kode_sales == Convert.ToInt64(selectedID.ToString()));
+            SalesViewModel sales = sales_view_coll.FirstOrDefault(s => s.kode_sales == Convert.ToInt64(selectedID));
 
             kode_sales.Text = sales.kode_sales.ToString();
             nama_sales.Text = sales.nama_sales;
+            kode_sh.Text = sales.nama_sh;
+            edit.Enabled = true;
+            hapus.Enabled = true;
         }
 
         private void Sales_Load(object sender, EventArgs e)
@@ -46,7 +49,7 @@ namespace SPKCFManagement.Master.Team
             edit.Enabled = false;
             hapus.Enabled = false;
 
-            SalesGridControl.DataSource = sales_view_coll.Where(svc => svc.salesbranch == Login.User.branchid);
+            RefreshGrid();
 
             IQueryable<SalesHeadModel> salesHead = sales_head_coll.Where(sh => sh.branchid == Login.User.branchid);
 
@@ -63,6 +66,7 @@ namespace SPKCFManagement.Master.Team
 
             kode_sales.ResetText();
             nama_sales.ResetText();
+            kode_sh.Text = "";
 
             nama_sales.Focus();
 
@@ -83,7 +87,7 @@ namespace SPKCFManagement.Master.Team
             }
 
             SalesModel sales;
-            if(kode_sh.Text == "")
+            if(kode_sales.Text == "")
             {
                 sales = new SalesModel(Session.DefaultSession);
             }
@@ -97,11 +101,15 @@ namespace SPKCFManagement.Master.Team
             sales.branchid = Login.User.branchid;
             sales.Save();
 
+            kode_sales.Text = sales.kode_sales.ToString();
+
             nama_sales.Enabled = false;
             kode_sh.Enabled = false;
 
             edit.Enabled = true;
             hapus.Enabled = true;
+
+            RefreshGrid();
         }
 
         private void Edit_Click(object sender, EventArgs e)
@@ -122,10 +130,21 @@ namespace SPKCFManagement.Master.Team
             DialogResult dialog = MessageBox.Show("Yakin ?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
             if(dialog == DialogResult.Yes)
             {
-                SalesModel sales = sales_coll.FirstOrDefault(s => s.kode_sales == Convert.ToInt64(kode_sales.Text));
-                sales.Delete();
+                XPQuery<SalesModel> scoll = SalesUnitOfWork.Query<SalesModel>();
+                SalesModel sales = scoll.FirstOrDefault(s => s.kode_sales == Convert.ToInt64(kode_sales.Text));
+                SalesUnitOfWork.Delete(sales);
+                SalesUnitOfWork.CommitChanges();
                 tambah.PerformClick();
             }
+
+            RefreshGrid();
+        }
+
+        private void RefreshGrid()
+        {
+            UnitOfWork a = new UnitOfWork(XpoDefault.DataLayer);
+            sales_view_coll = a.Query<SalesViewModel>();
+            SalesGridControl.DataSource = sales_view_coll.Where(svc => svc.salesbranch == Login.User.branchid);
         }
     }
 }

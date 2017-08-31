@@ -55,6 +55,7 @@
   <ItemGroup>
     <Reference Include="DevExpress.BonusSkins.v17.1, Version=17.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Data.v17.1, Version=17.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Mvvm.v17.1, Version=17.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Printing.v17.1.Core, Version=17.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.SpellChecker.v17.1.Core, Version=17.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.TreeMap.v17.1.Core, Version=17.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
@@ -252,6 +253,21 @@
       <DependentUpon>Model.xpo</DependentUpon>
       <SubType>Designer</SubType>
     </None>
+    <None Include="Properties\DataSources\SPKCFManagement.DB.MySQL.spkcms.BranchModel.datasource" />
+    <None Include="Properties\DataSources\SPKCFManagement.DB.MySQL.spkcms.ConnectionHelper.datasource" />
+    <None Include="Properties\DataSources\SPKCFManagement.DB.MySQL.spkcms.PelunasanModel.datasource" />
+    <None Include="Properties\DataSources\SPKCFManagement.DB.MySQL.spkcms.PermissionModel.datasource" />
+    <None Include="Properties\DataSources\SPKCFManagement.DB.MySQL.spkcms.RoleHasPermissionModel.datasource" />
+    <None Include="Properties\DataSources\SPKCFManagement.DB.MySQL.spkcms.RolesModel.datasource" />
+    <None Include="Properties\DataSources\SPKCFManagement.DB.MySQL.spkcms.SalesHeadModel.datasource" />
+    <None Include="Properties\DataSources\SPKCFManagement.DB.MySQL.spkcms.SalesModel.datasource" />
+    <None Include="Properties\DataSources\SPKCFManagement.DB.MySQL.spkcms.SalesViewModel.datasource" />
+    <None Include="Properties\DataSources\SPKCFManagement.DB.MySQL.spkcms.SpkModel.datasource" />
+    <None Include="Properties\DataSources\SPKCFManagement.DB.MySQL.spkcms.UserHasBranchModel.datasource" />
+    <None Include="Properties\DataSources\SPKCFManagement.DB.MySQL.spkcms.UserHasPermissionModel.datasource" />
+    <None Include="Properties\DataSources\SPKCFManagement.DB.MySQL.spkcms.UserHasRolesModel.datasource" />
+    <None Include="Properties\DataSources\SPKCFManagement.DB.MySQL.spkcms.UserModel.datasource" />
+    <None Include="Properties\DataSources\SPKCFManagement.DB.MySQL.spkcms.UserviewModel.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

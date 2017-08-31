@@ -18,7 +18,7 @@ namespace SPKCFManagement.DB.MySQL.spkcms
     public partial class SalesModel : XPLiteObject
     {
         int fkode_sales;
-        [Key]
+        [Key(true)]
         public int kode_sales
         {
             get { return fkode_sales; }
